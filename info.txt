@@ -1,0 +1,4 @@
+
+- Hacer constructora de Arkanoid Object
+- Modificar loadFromFile y saveToFile en movingObjects
+- Preguntar lo de los iteradores para la lista de objects
