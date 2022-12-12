@@ -1,23 +1,28 @@
 ﻿  ArkanoidObject.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-C:\Users\lauri\Documents\GitHub\Arkanoid2.0CiscoxPaceve\HolaSDL\ArkanoidObject.cpp(5,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\lauri\Documents\GitHub\Arkanoid2.0CiscoxPaceve\HolaSDL\ArkanoidObject.cpp(6,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\ArkanoidObject.cpp(5,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\ArkanoidObject.cpp(6,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
   Ball.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Ball.cpp(15,12): error C2039: "collidesBall": no es un miembro de "Game"
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Game.h(40): message : vea la declaración de 'Game'
   Block.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
   BlocksMap.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\BlocksMap.cpp(22,58): error C2065: 'BLOCK_WIDTH': identificador no declarado
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\BlocksMap.cpp(22,96): error C2065: 'BLOCK_HEIGHT': identificador no declarado
   Game.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
   GameObject.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+  GameState.cpp
   main.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
@@ -30,9 +35,34 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): 
   Paddle.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Paddle.cpp(13,19): error C2065: 'WALL_WIDTH': identificador no declarado
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Paddle.cpp(13,94): error C2065: 'WALL_WIDTH': identificador no declarado
+  PlayState.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\PlayState.cpp(41,9): warning C4551: la llamada a la función no tiene lista de argumentos
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\PlayState.cpp(50,6): warning C4551: la llamada a la función no tiene lista de argumentos
   Reward.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Reward.cpp(83,12): error C2039: "collidesReward": no es un miembro de "Game"
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Game.h(40): message : vea la declaración de 'Game'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Reward.cpp(85,19): error C2039: "reset": no es un miembro de "Game"
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Game.h(40): message : vea la declaración de 'Game'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Reward.cpp(88,10): error C2039: "biggerPaddle": no es un miembro de "Game"
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Game.h(40): message : vea la declaración de 'Game'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Reward.cpp(89,10): error C2039: "deleteReward": no es un miembro de "Game"
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Game.h(40): message : vea la declaración de 'Game'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Reward.cpp(92,10): error C2039: "shorterPaddle": no es un miembro de "Game"
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Game.h(40): message : vea la declaración de 'Game'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Reward.cpp(93,10): error C2039: "deleteReward": no es un miembro de "Game"
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Game.h(40): message : vea la declaración de 'Game'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Reward.cpp(96,10): error C2039: "oneMoreLife": no es un miembro de "Game"
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Game.h(40): message : vea la declaración de 'Game'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Reward.cpp(97,10): error C2039: "deleteReward": no es un miembro de "Game"
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Game.h(40): message : vea la declaración de 'Game'
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Reward.cpp(103,9): error C2039: "deleteReward": no es un miembro de "Game"
+C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\Game.h(40): message : vea la declaración de 'Game'
   ArkanoidError.cpp
   FileFormatError.cpp
   FileNotFoundError.cpp
@@ -45,4 +75,3 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): 
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
   Generando código...
-  HolaSDL.vcxproj -> C:\Users\lauri\Documents\GitHub\Arkanoid2.0CiscoxPaceve\bin\HolaSDLDebug.exe
