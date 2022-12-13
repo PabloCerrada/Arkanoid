@@ -1,7 +1,7 @@
 #pragma once
 #include "Block.h"
 #include "ArkanoidObject.h"
-class Game;
+class Game;							//por que no va con PlayState
 class BlocksMap : public ArkanoidObject
 {
 private:

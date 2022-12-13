@@ -1,5 +1,5 @@
 #include "BlocksMap.h"
-#include "Game.h" 
+#include "PlayState.h" 
 #include <fstream>
 BlocksMap::BlocksMap(int width, int height, Game* game) {
 	this->width = width;

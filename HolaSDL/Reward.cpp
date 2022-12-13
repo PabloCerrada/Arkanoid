@@ -1,8 +1,8 @@
 #include "Reward.h"
-#include "Game.h"
+#include "PlayState.h"
 
 // Constructor used when rewards are created destroying a block
-Reward::Reward(Vector2D pos, int width, int height, int velocity, char letra, Vector2D direction, Texture* texture, Game* game)
+Reward::Reward(Vector2D pos, int width, int height, int velocity, char letra, Vector2D direction, Texture* texture, PlayState* playState)
 {
 	this->pos = pos;
 	this->width = width;
@@ -10,7 +10,7 @@ Reward::Reward(Vector2D pos, int width, int height, int velocity, char letra, Ve
 	this->velocity = velocity;
 	this->direction = direction;
 	this->texture = texture;
-	this->game = game;
+	this->playState = playState;
 	this->letra = letra;
 
 	switch (letra)
@@ -31,11 +31,11 @@ Reward::Reward(Vector2D pos, int width, int height, int velocity, char letra, Ve
 }
 
 // Constructor used when rewards are read from file
-Reward::Reward(int width, int height, Texture* texture, Game* game) { 
+Reward::Reward(int width, int height, Texture* texture, PlayState* playState) {
 	this->width = width;
 	this->height = height;
 	this->texture = texture;
-	this->game = game;
+	this->playState = playState;
 }
 
 void Reward::render() {
@@ -80,27 +80,27 @@ void Reward::update() {
 	pos = pos + direction * velocity;
 
 	// We only delete the reward if nextLevel reward is not taken, because it is deleted in the reset method of Game.cpp
-	if (game->collidesReward(getRect())) {
+	if (playState->collidesReward(getRect())) {
 		switch (letra) {
-		case 'L': game->reset();
+		case 'L': playState->reset();
 			break;
 		case 'E': 
-			game->biggerPaddle();
-			game->deleteReward(this);
+			playState->biggerPaddle();
+			playState->deleteReward(this);
 			break;
 		case 'S': 
-			game->shorterPaddle();
-			game->deleteReward(this);
+			playState->shorterPaddle();
+			playState->deleteReward(this);
 			break;
 		case 'R': 
-			game->oneMoreLife();
-			game->deleteReward(this);
+			playState->oneMoreLife();
+			playState->deleteReward(this);
 			break;
 		}
 		
 	}
 	if (pos.getY() > WIN_HEIGHT + height) { // Deleting reward when you do not take it
-		game->deleteReward(this);
+		playState->deleteReward(this);
 	}
 }
 

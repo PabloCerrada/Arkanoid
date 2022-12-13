@@ -6,7 +6,7 @@ PlayState::PlayState() {
 
 	paddle = new Paddle(NORMAL_PADDLE_WIDTH, PADDLE_HEIGHT, game->getTexture(Paddle1));
 
-	ball = new Ball(BALL_RADIUS, Vector2D(0, -1), game->getTexture(Ball1), game);
+	ball = new Ball(BALL_RADIUS, Vector2D(0, -1), game->getTexture(Ball1), this);
 
 	walls[0] = new Wall(WALL_WIDTH, WIN_HEIGHT, Vector2D(1, 0), game->getTexture(SideWall1));
 	walls[1] = new Wall(WALL_WIDTH, WIN_HEIGHT, Vector2D(-1, 0), game->getTexture(SideWall1));
@@ -128,7 +128,7 @@ bool PlayState::collidesBall(SDL_Rect ballRect, Vector2D& colVector) {
 		int probability = rand() % 10; // Interval [0, 10)
 		if (probability == 1) {
 			int randomLetter = rand() % NUM_REWARDS; // Interval [0, 4) = 4 posibilities = 4 letters = 4 rewards
-			Reward* newReward = new Reward(Vector2D(ball->getRect().x - BALL_RADIUS, ball->getRect().y), REWARD_WIDTH, REWARD_HEIGHT, 1, RANDOM_REWARD_LETTER[randomLetter], Vector2D(0, 1), game->getTexture(Reward1), game);
+			Reward* newReward = new Reward(Vector2D(ball->getRect().x - BALL_RADIUS, ball->getRect().y), REWARD_WIDTH, REWARD_HEIGHT, 1, RANDOM_REWARD_LETTER[randomLetter], Vector2D(0, 1), game->getTexture(Reward1), this);
 			rewards.push_back(newReward);
 		}
 		return true;
@@ -200,7 +200,7 @@ void PlayState::loadFromFile(const string& path) {
 	in >> nRewards;
 	if (nRewards < 0) throw FileFormatError("nRewards is" + to_string(nRewards) + "must be 0 or bigger");
 	for (int i = 0; i < nRewards; i++) {
-		Reward* newReward = new Reward(REWARD_WIDTH, REWARD_HEIGHT, game->getTexture(Reward1), game);
+		Reward* newReward = new Reward(REWARD_WIDTH, REWARD_HEIGHT, game->getTexture(Reward1), this);
 		newReward->loadFromFile(in);
 		rewards.push_back(newReward);
 

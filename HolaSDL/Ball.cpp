@@ -1,18 +1,18 @@
 #include "Ball.h"
-#include "Game.h"
+#include "PlayState.h"
 
-Ball::Ball(int radius, Vector2D colVector, Texture* texture, Game* game)
+Ball::Ball(int radius, Vector2D colVector, Texture* texture, PlayState* playState)
 {
 	this->width = radius;
 	this->height = radius;
 	this->texture = texture;
-	this->game = game;
+	this->playState = playState;
 	this->colVector = colVector;
 }
 
 void Ball::update() {
 	// We only change the direction if the ball collides with something
-	if (game->collidesBall(getRect(), colVector)) {
+	if (playState->collidesBall(getRect(), colVector)) {
 		direction = direction - colVector * (2 * (direction * colVector)); // Bounce direction equation
 	}
 	direction.normalize(); // We normalize the vector to avoid summing up the velocity
