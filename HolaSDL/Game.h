@@ -49,9 +49,16 @@ public:
 	Game();
 	~Game();
 	void run();
-	Texture* getTexture(TextureName name);
+	Texture* getTexture(TextureName name);				//update handleEvent, render
 	SDL_Rect getWindowRect();
+	void render();
+	void update();
+	void handleEvent();
 	SDL_Renderer* getRenderer();
 	void setExit();
+	//void getState()
+	//{
+	//	stateMachine->currentState();					//type id para pillar que tipo de estado es
+	//}
 	bool getExit();
 };

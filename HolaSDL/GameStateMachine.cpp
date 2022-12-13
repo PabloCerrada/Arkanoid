@@ -4,8 +4,10 @@ GameState* GameStateMachine::currentState()
 	return stackStates.top();
 }
 
-void GameStateMachine::changeState() {
-
+void GameStateMachine::changeState(GameState* state)
+{
+	popState();
+	pushState(state);
 }
 
 void GameStateMachine::pushState(GameState* state) 
@@ -15,5 +17,5 @@ void GameStateMachine::pushState(GameState* state)
 
 void GameStateMachine::popState()
 {
-
+	stackStates.pop();
 }

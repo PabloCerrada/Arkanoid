@@ -1,14 +1,14 @@
 #pragma once
-
+#include <list>
+#include "GameObject.h"
 using namespace std;
 class GameState
 {
-private:
-   
+protected:
+    list<GameObject*> objetos;
 public:
-    virtual void run()=0;
-   /* void render();
-    void update();
-    void handleEvent();*/
+   virtual void render()=0;
+   virtual void update()=0;
+   virtual void handleEvent()=0;
 };
 

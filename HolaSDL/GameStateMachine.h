@@ -10,7 +10,7 @@ private:
 public:
     GameState* currentState();
     void pushState(GameState* state);
-    void changeState();
+    void changeState(GameState* state);
     void popState();
 };
 

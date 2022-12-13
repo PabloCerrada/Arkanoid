@@ -46,9 +46,9 @@ public:
 	PlayState(Game* game1);
 	~PlayState();
 	virtual void run();
-	void render();
-	void handleEvents();
-	void update();
+	virtual void render();
+	virtual void handleEvents();
+	virtual void update();
 	bool collidesBall(SDL_Rect ballRect, Vector2D& colVector);
 	bool collidesReward(SDL_Rect rewardRect);
 	void GameOver();

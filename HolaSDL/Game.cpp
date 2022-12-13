@@ -18,7 +18,7 @@ Game::Game() {
 		textures[i] = new Texture(renderer, "../images/"+ desc.filename, desc.vframes, desc.hframes);
 	}
 
-	stateMachine->pushState(new PlayState(this));
+	//stateMachine->pushState(new PlayState(this));
 }
 Game::~Game() {
 	for (uint i = 0; i < NUM_TEXTURES; i++) delete textures[i];
@@ -31,7 +31,8 @@ void Game::run() {
 
 
 
-	stateMachine->currentState()->run();
+	//stateMachine->currentState()->run();
+
 	/*uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
 	while (!exit && !gameover && !win) {
@@ -51,7 +52,18 @@ void Game::run() {
 		SDL_Delay(3000);
 	}*/
 }
-
+void Game::render()
+{
+	stateMachine->currentState()->render();
+}
+void Game::update()
+{
+	stateMachine->currentState()->update();
+}
+void Game::handleEvent()
+{
+	stateMachine->currentState()->handleEvent();
+}
 //We use this function to avoid breaking the privacy between classes ;)
 Texture* Game::getTexture(TextureName name) {
 	return textures[name];
