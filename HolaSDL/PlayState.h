@@ -43,9 +43,9 @@ private:
 	list<Reward*> rewards;
 	list<ArkanoidObject*> objects;
 public:
-	PlayState();
+	PlayState(Game* game1);
 	~PlayState();
-	void run();
+	virtual void run();
 	void render();
 	void handleEvents();
 	void update();

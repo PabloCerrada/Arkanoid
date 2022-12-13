@@ -1,5 +1,5 @@
 #include "Game.h"
-
+#include "PlayState.h"
 Game::Game() {
 	// We first initialize SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -17,6 +17,8 @@ Game::Game() {
 		const TextureDescription &desc = TEXT_DESCRIPT[i];
 		textures[i] = new Texture(renderer, "../images/"+ desc.filename, desc.vframes, desc.hframes);
 	}
+
+	stateMachine->pushState(new PlayState(this));
 }
 Game::~Game() {
 	for (uint i = 0; i < NUM_TEXTURES; i++) delete textures[i];
@@ -26,6 +28,10 @@ Game::~Game() {
 }
 
 void Game::run() {
+
+
+
+	stateMachine->currentState()->run();
 	/*uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
 	while (!exit && !gameover && !win) {

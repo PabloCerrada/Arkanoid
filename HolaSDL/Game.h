@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include "GameStateMachine.h"
 using namespace std;
 using uint = unsigned int;
 
@@ -43,6 +44,7 @@ private:
 	SDL_Renderer* renderer = nullptr;
 	bool exit = false; // control booleans
 	Texture* textures[NUM_TEXTURES];
+	GameStateMachine* stateMachine;
 public:
 	Game();
 	~Game();

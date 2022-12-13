@@ -1,6 +1,8 @@
 #include "PlayState.h"
 
-PlayState::PlayState() {
+PlayState::PlayState(Game* game1) {
+
+	game = game1;
 	// We finally create the game objects 
 	blocksMap = new BlocksMap(WIN_WIDTH - 2 * WALL_WIDTH, (WIN_HEIGHT - 2 * WALL_WIDTH) / 2, game);
 
