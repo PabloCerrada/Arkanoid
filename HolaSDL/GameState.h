@@ -2,6 +2,10 @@
 #include <list>
 #include "GameObject.h"
 using namespace std;
+
+const uint BUTTON_WIDTH = 400;
+const uint BUTTON_HEIGHT = 100;
+
 class GameState
 {
 protected:

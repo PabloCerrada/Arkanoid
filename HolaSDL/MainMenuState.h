@@ -4,8 +4,7 @@
 /*#include "SDL.h"	//posible error circular?
 #include "SDL_image.h"					//para poder pasarle el renderer*/
 
-const uint BUTTON_WIDTH = 400;
-const uint BUTTON_HEIGHT = 100;
+
 class Game;
 class MainMenuState:public GameState
 {
