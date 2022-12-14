@@ -19,7 +19,8 @@ Game::Game() {
 	}
 	stateMachine = new GameStateMachine();
 	cout << stateMachine->stackLength();
-	stateMachine->pushState(new PlayState(this));
+	stateMachine->pushState(new MainMenuState(this));
+	//stateMachine->pushState(new PlayState(this));
 }
 Game::~Game() {
 	for (uint i = 0; i < NUM_TEXTURES; i++) delete textures[i];
@@ -39,7 +40,6 @@ void Game::run() {
 			startTime = SDL_GetTicks();
 		}
 		render();
-		cout << "hola";
 	}
 	if (!exit) {
 		/*SDL_RenderClear(renderer);

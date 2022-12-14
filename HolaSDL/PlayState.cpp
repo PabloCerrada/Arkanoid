@@ -14,6 +14,7 @@ PlayState::PlayState(Game* game1) {
 	walls[0] = new Wall(WALL_WIDTH, WIN_HEIGHT, Vector2D(1, 0), game->getTexture(SideWall1));
 	walls[1] = new Wall(WALL_WIDTH, WIN_HEIGHT, Vector2D(-1, 0), game->getTexture(SideWall1));
 	walls[2] = new Wall(WIN_WIDTH, WALL_WIDTH, Vector2D(0, 1), game->getTexture(TopWall1));
+	
 
 	// We add all the objects to the ArkanoidObjects list
 	objects.push_back(blocksMap);
@@ -31,7 +32,6 @@ PlayState::PlayState(Game* game1) {
 	else {
 		loadFromFile(LEVEL_DESCRIPT[level - 1]);
 	}
-	
 }
 PlayState::~PlayState() {
 	delete paddle;
