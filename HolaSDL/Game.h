@@ -21,10 +21,10 @@ using uint = unsigned int;
 
 const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;
-const uint NUM_TEXTURES = 9;
+const uint NUM_TEXTURES = 14;
 const uint FRAME_RATE = 10;
 
-enum TextureName { Ball1, Block1, GameOver1, Paddle1, SideWall1, TopWall1, Winner1, Reward1,Menu1};
+enum TextureName { Ball1, Block1, GameOver1, Paddle1, SideWall1, TopWall1, Winner1, Reward1, Menu1, Exit1, Main1, Play1, Restart1, Resume1};
 
 typedef struct
 {
@@ -36,7 +36,8 @@ typedef struct
 
 const TextureDescription TEXT_DESCRIPT[NUM_TEXTURES] =
 {
-	{"ball2.png",1,1},{"bricks2.png",3,2},{"gameover1.png",1,1},{"paddle2.png",1,1},{"side2.png",1,1},{"topside.png",1,1},{"youwin.png",1,1},{"rewards.png", 8, 10},{"Menu.png", 1, 1}
+	{"ball2.png",1,1},{"bricks2.png",3,2},{"gameover1.png",1,1},{"paddle2.png",1,1},{"side2.png",1,1},{"topside.png",1,1},{"youwin.png",1,1},
+	{"rewards.png", 8, 10},{"Menu.png", 1, 1},{"exit.png", 3, 1},{"main.png", 3, 1},{"play.png", 3, 1},{"restart.png", 3, 1},{"resume.png", 3, 1}
 };
  
 class Game {
