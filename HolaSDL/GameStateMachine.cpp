@@ -1,4 +1,8 @@
 #include "GameStateMachine.h"
+GameStateMachine::GameStateMachine() {
+
+}
+
 GameState* GameStateMachine::currentState() 
 {
 	return stackStates.top();
@@ -18,4 +22,8 @@ void GameStateMachine::pushState(GameState* state)
 void GameStateMachine::popState()
 {
 	stackStates.pop();
+}
+
+int GameStateMachine::stackLength() {
+	return stackStates.size();
 }

@@ -1,5 +1,6 @@
 #include "Paddle.h"
 #include "PlayState.h"
+#include "Game.h"
 Paddle::Paddle(int width, int height, Texture* texture)
 {
 	this->width = width;

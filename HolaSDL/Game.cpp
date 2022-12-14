@@ -1,5 +1,5 @@
 #include "Game.h"
-#include "PlayState.h"
+
 Game::Game() {
 	// We first initialize SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -17,8 +17,9 @@ Game::Game() {
 		const TextureDescription &desc = TEXT_DESCRIPT[i];
 		textures[i] = new Texture(renderer, "../images/"+ desc.filename, desc.vframes, desc.hframes);
 	}
-
-	//stateMachine->pushState(new PlayState(this));
+	stateMachine = new GameStateMachine();
+	cout << stateMachine->stackLength();
+	stateMachine->pushState(new PlayState(this));
 }
 Game::~Game() {
 	for (uint i = 0; i < NUM_TEXTURES; i++) delete textures[i];
@@ -28,29 +29,25 @@ Game::~Game() {
 }
 
 void Game::run() {
-
-
-
-	//stateMachine->currentState()->run();
-
-	/*uint32_t startTime, frameTime;
+	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
-	while (!exit && !gameover && !win) {
-		handleEvents();
+	while (!exit) {
+		handleEvent();
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= FRAME_RATE) {
 			update();
 			startTime = SDL_GetTicks();
 		}
 		render();
+		cout << "hola";
 	}
 	if (!exit) {
-		SDL_RenderClear(renderer);
+		/*SDL_RenderClear(renderer);
 		if (gameover) GameOver();
 		else if (win) Win();
 		SDL_RenderPresent(renderer);
-		SDL_Delay(3000);
-	}*/
+		SDL_Delay(3000);*/
+	}
 }
 void Game::render()
 {

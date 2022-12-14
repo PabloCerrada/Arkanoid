@@ -1,6 +1,6 @@
 #include "Reward.h"
 #include "PlayState.h"
-
+#include "Game.h"
 // Constructor used when rewards are created destroying a block
 Reward::Reward(Vector2D pos, int width, int height, int velocity, char letra, Vector2D direction, Texture* texture, PlayState* playState)
 {

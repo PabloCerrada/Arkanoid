@@ -1,4 +1,5 @@
 #include "PlayState.h"
+#include "Game.h"
 
 PlayState::PlayState(Game* game1) {
 
@@ -21,6 +22,16 @@ PlayState::PlayState(Game* game1) {
 	objects.push_back(walls[2]);
 	objects.push_back(paddle);
 	objects.push_back(ball);
+
+	string hola;
+	cin >> hola;
+	if (hola == "LOAD") {
+		loadFromFile(LEVEL_DESCRIPT[3]);
+	}
+	else {
+		loadFromFile(LEVEL_DESCRIPT[level - 1]);
+	}
+	
 }
 PlayState::~PlayState() {
 	delete paddle;
@@ -41,7 +52,7 @@ void PlayState::run() {
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
 	while (!exit && !gameover && !win) {
-		handleEvents();
+		handleEvent();
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= FRAME_RATE) {
 			update();
@@ -95,7 +106,7 @@ void PlayState::render() {
 }
 
 //Function that handle the events
-void PlayState::handleEvents() {
+void PlayState::handleEvent() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
 		if (event.type == SDL_QUIT) game->setExit();

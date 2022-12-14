@@ -13,6 +13,7 @@
 #include <ctime>
 #include <iostream>
 #include "GameStateMachine.h"
+#include "PlayState.h"
 using namespace std;
 using uint = unsigned int;
 

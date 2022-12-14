@@ -5,7 +5,6 @@
 #include "Wall.h"
 #include "BlocksMap.h"
 #include "Reward.h"
-#include "Game.h"
 
 const uint WALL_WIDTH = 21;
 const uint NUM_LEVELS = 4;
@@ -27,7 +26,7 @@ enum LevelsName { Level1, Level2, Level3 };
 const char RANDOM_REWARD_LETTER[NUM_REWARDS] = { 'R', 'L', 'E', 'S' };
 
 const string LEVEL_DESCRIPT[NUM_LEVELS] = { "../maps/level01.dat","../maps/level02.dat","../maps/level03.dat", "../maps/levelS.dat" };
-
+class Game;
 class PlayState : public GameState 
 {
 private:
@@ -47,7 +46,7 @@ public:
 	~PlayState();
 	virtual void run();
 	virtual void render();
-	virtual void handleEvents();
+	virtual void handleEvent();
 	virtual void update();
 	bool collidesBall(SDL_Rect ballRect, Vector2D& colVector);
 	bool collidesReward(SDL_Rect rewardRect);
