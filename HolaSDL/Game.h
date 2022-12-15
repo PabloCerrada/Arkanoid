@@ -15,6 +15,8 @@
 #include "GameStateMachine.h"
 #include "PlayState.h"
 #include "MainMenuState.h"
+#include "PauseState.h"
+#include "EndState.h"
 using namespace std;
 using uint = unsigned int;
 

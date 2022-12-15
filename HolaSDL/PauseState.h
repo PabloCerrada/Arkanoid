@@ -1,16 +1,16 @@
 #pragma once
 #include "GameState.h"
 #include "MenuButton.h"
+
 class Game;
-class MainMenuState:public GameState
+class PauseState :public GameState
 {
 private:
 	Game* game;
 	MenuButton* resumeButton;
-	MenuButton* playButton;
 	MenuButton* exitButton;
 public:
-	MainMenuState(Game* game);
+	PauseState(Game* game);
 	virtual void update();
 	virtual void render();
 	virtual void handleEvent();

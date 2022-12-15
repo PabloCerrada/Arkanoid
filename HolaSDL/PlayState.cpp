@@ -2,7 +2,6 @@
 #include "Game.h"
 
 PlayState::PlayState(Game* game1) {
-
 	game = game1;
 	// We finally create the game objects 
 	blocksMap = new BlocksMap(WIN_WIDTH - 2 * WALL_WIDTH, (WIN_HEIGHT - 2 * WALL_WIDTH) / 2, game);
@@ -17,13 +16,22 @@ PlayState::PlayState(Game* game1) {
 	
 
 	// We add all the objects to the ArkanoidObjects list
-	objects.push_back(blocksMap);
+	/*objects.push_back(blocksMap);
 	objects.push_back(walls[0]);
 	objects.push_back(walls[1]);
 	objects.push_back(walls[2]);
 	objects.push_back(paddle);
-	objects.push_back(ball);
+	objects.push_back(ball);*/
 
+	objetos.clear();
+
+
+	objetos.push_back(blocksMap);
+	objetos.push_back(walls[0]);
+	objetos.push_back(walls[1]);
+	objetos.push_back(walls[2]);
+	objetos.push_back(paddle);
+	objetos.push_back(ball);
 	string hola;
 	cin >> hola;
 	if (hola == "LOAD") {
@@ -69,7 +77,7 @@ void PlayState::run() {
 	}
 }
 void PlayState::update() {
-	for (auto it : objects)
+	for (auto it : objetos)
 	{
 		it->update();
 	}
@@ -96,7 +104,7 @@ void PlayState::update() {
 }
 void PlayState::render() {
 	SDL_RenderClear(game->getRenderer());
-	for (auto it : objects) {
+	for (auto it : objetos) {
 		it->render();
 	}
 	for (auto it : rewards) {
@@ -206,7 +214,7 @@ void PlayState::loadFromFile(const string& path) {
 	{
 		throw FileFormatError("level is " + to_string(level) + ",must be 0 or bigger");
 	}
-	for (auto it : objects) {
+	for (auto it : objetos) {
 		it->loadFromFile(in);
 	}
 	int nRewards = 0;
@@ -228,7 +236,7 @@ void PlayState::saveToFile(const string& path, SDL_Event event) {
 		if (!in) throw FileNotFoundError("Path unknown");
 		in << level << "\n";
 		cout << level;
-		for (auto it : objects) {
+		for (auto it : objetos) {
 			it->saveToFile(in);
 			in << "\n";
 		}
