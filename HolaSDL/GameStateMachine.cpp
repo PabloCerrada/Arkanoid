@@ -16,7 +16,7 @@ void GameStateMachine::changeState(GameState* state)
 
 void GameStateMachine::pushState(GameState* state) 
 {
-	stackStates.push(state);				//error de stack
+	stackStates.push(state);
 }
 
 void GameStateMachine::popState()

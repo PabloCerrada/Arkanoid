@@ -84,9 +84,6 @@
     <ClCompile Include="MenuButton.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="EndState.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
@@ -159,9 +156,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="MenuButton.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Mouse.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="EndState.h">

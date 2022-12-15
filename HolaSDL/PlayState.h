@@ -42,7 +42,7 @@ private:
 	list<Reward*> rewards;
 	list<ArkanoidObject*> objects;
 public:
-	PlayState(Game* game1);
+	PlayState(Game* game1, bool load);
 	~PlayState();
 	virtual void run();
 	virtual void render();

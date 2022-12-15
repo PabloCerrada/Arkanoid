@@ -1,7 +1,7 @@
 #include "PlayState.h"
 #include "Game.h"
 
-PlayState::PlayState(Game* game1) {
+PlayState::PlayState(Game* game1, bool load) {
 	game = game1;
 	// We finally create the game objects 
 	blocksMap = new BlocksMap(WIN_WIDTH - 2 * WALL_WIDTH, (WIN_HEIGHT - 2 * WALL_WIDTH) / 2, game);
@@ -15,13 +15,7 @@ PlayState::PlayState(Game* game1) {
 	walls[2] = new Wall(WIN_WIDTH, WALL_WIDTH, Vector2D(0, 1), game->getTexture(TopWall1));
 	
 
-	// We add all the objects to the ArkanoidObjects list
-	/*objects.push_back(blocksMap);
-	objects.push_back(walls[0]);
-	objects.push_back(walls[1]);
-	objects.push_back(walls[2]);
-	objects.push_back(paddle);
-	objects.push_back(ball);*/
+	// We add all the objects to the GameObjects list
 
 	objetos.clear();
 
@@ -32,9 +26,8 @@ PlayState::PlayState(Game* game1) {
 	objetos.push_back(walls[2]);
 	objetos.push_back(paddle);
 	objetos.push_back(ball);
-	string hola;
-	cin >> hola;
-	if (hola == "LOAD") {
+
+	if (load) {
 		loadFromFile(LEVEL_DESCRIPT[3]);
 	}
 	else {
@@ -57,7 +50,7 @@ PlayState::~PlayState() {
 }
 
 void PlayState::run() {
-	uint32_t startTime, frameTime;
+	/*uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
 	while (!exit && !gameover && !win) {
 		handleEvent();
@@ -74,7 +67,7 @@ void PlayState::run() {
 		else if (win) Win();
 		SDL_RenderPresent(game->getRenderer());
 		SDL_Delay(3000);
-	}
+	}*/
 }
 void PlayState::update() {
 	for (auto it : objetos)
@@ -159,6 +152,7 @@ bool PlayState::collidesBall(SDL_Rect ballRect, Vector2D& colVector) {
 	if (ballRect.y >= WIN_HEIGHT) {
 		if (life == 1) {
 			gameover = true; // You will lose only if you have a single life
+			GameOver();
 		}
 		else { // Reseted position and directions of paddle and ball if you have more than one life
 			ball->setPos(Vector2D(WIN_WIDTH / 2 - (BALL_RADIUS / 2), WIN_HEIGHT / 2 + 200));
@@ -173,11 +167,17 @@ bool PlayState::collidesBall(SDL_Rect ballRect, Vector2D& colVector) {
 
 //Function that triggers when you lose...
 void PlayState::GameOver() {
+	SDL_RenderClear(game->getRenderer());
 	game->getTexture(GameOver1)->render(game->getWindowRect());
+	SDL_RenderPresent(game->getRenderer());
+	SDL_Delay(3000);
 }
 //... and when you win
 void PlayState::Win() {
+	SDL_RenderClear(game->getRenderer());
 	game->getTexture(Winner1)->render(game->getWindowRect());
+	SDL_RenderPresent(game->getRenderer());
+	SDL_Delay(3000);
 }
 
 void PlayState::oneMoreLife() {
@@ -280,6 +280,7 @@ void PlayState::reset()
 	}
 	else {
 		win = true;
+		Win();
 	}
 
 }

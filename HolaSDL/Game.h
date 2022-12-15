@@ -61,6 +61,9 @@ public:
 	void handleEvent();
 	SDL_Renderer* getRenderer();
 	void setExit();
+	static void playFunction(Game* game);
+	static void loadFunction(Game* game);
+	static void exitFunction(Game* game);
 	//void getState()
 	//{
 	//	stateMachine->currentState();					//type id para pillar que tipo de estado es

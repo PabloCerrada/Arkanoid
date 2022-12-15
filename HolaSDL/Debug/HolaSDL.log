@@ -1,32 +1,6 @@
-﻿  ArkanoidObject.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\ArkanoidObject.cpp(5,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\ArkanoidObject.cpp(6,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-  BlocksMap.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-  Game.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-  main.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-  MainMenuState.cpp
-  MenuButton.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\MenuButton.cpp(46,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\MenuButton.cpp(47,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-  Mouse.cpp
-  Paddle.cpp
+﻿  Game.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
   PlayState.cpp
-C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\PlayState.cpp(54,9): warning C4551: la llamada a la función no tiene lista de argumentos
-C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\HolaSDL\PlayState.cpp(63,6): warning C4551: la llamada a la función no tiene lista de argumentos
-  Reward.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
   Generando código...
   HolaSDL.vcxproj -> C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\bin\HolaSDLDebug.exe

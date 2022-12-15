@@ -18,9 +18,7 @@ Game::Game() {
 		textures[i] = new Texture(renderer, "../images/"+ desc.filename, desc.vframes, desc.hframes);
 	}
 	stateMachine = new GameStateMachine();
-	cout << stateMachine->stackLength();
 	stateMachine->pushState(new MainMenuState(this));
-	//stateMachine->pushState(new PlayState(this));
 }
 Game::~Game() {
 	for (uint i = 0; i < NUM_TEXTURES; i++) delete textures[i];
@@ -42,11 +40,7 @@ void Game::run() {
 		render();
 	}
 	if (!exit) {
-		/*SDL_RenderClear(renderer);
-		if (gameover) GameOver();
-		else if (win) Win();
-		SDL_RenderPresent(renderer);
-		SDL_Delay(3000);*/
+		stateMachine->changeState(new EndState(this));
 	}
 }
 void Game::render()
@@ -86,4 +80,16 @@ bool Game::getExit() {
 
 void Game::setExit() {
 	exit = !exit;
+}
+
+void Game::playFunction(Game* game) {
+	game->stateMachine->changeState(new PlayState(game, false));
+}
+
+void Game::loadFunction(Game* game) {
+	game->stateMachine->changeState(new PlayState(game, true));
+}
+
+void Game::exitFunction(Game* game) {
+	game->setExit();
 }

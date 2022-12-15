@@ -3,8 +3,10 @@
 #include "GameObject.h"
 using namespace std;
 
-const uint BUTTON_WIDTH = 400;
-const uint BUTTON_HEIGHT = 100;
+const uint REDBUTTON_WIDTH = 400;
+const uint REDBUTTON_HEIGHT = 100;
+const uint BLUEBUTTON_WIDTH = 200;
+const uint BLUEBUTTON_HEIGHT = 80;
 
 class GameState
 {

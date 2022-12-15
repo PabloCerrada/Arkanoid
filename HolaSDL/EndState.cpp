@@ -3,9 +3,9 @@
 
 EndState::EndState(Game* game) {
 	this->game = game;
-	playButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - BUTTON_WIDTH / 2, 100), BUTTON_WIDTH, BUTTON_HEIGHT, game->getTexture(Play1));
-	resumeButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - BUTTON_WIDTH / 2, 250), BUTTON_WIDTH, BUTTON_HEIGHT, game->getTexture(Resume1));
-	exitButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - BUTTON_WIDTH / 2, 400), BUTTON_WIDTH, BUTTON_HEIGHT, game->getTexture(Exit1));
+	playButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - REDBUTTON_WIDTH / 2, 100), REDBUTTON_WIDTH, REDBUTTON_HEIGHT, game->getTexture(Play1), game, Game::playFunction);
+	resumeButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - BLUEBUTTON_WIDTH / 2, 250), BLUEBUTTON_WIDTH, BLUEBUTTON_HEIGHT, game->getTexture(Resume1), game, Game::loadFunction);
+	exitButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - REDBUTTON_WIDTH / 2, 400), REDBUTTON_WIDTH, REDBUTTON_HEIGHT, game->getTexture(Exit1), game, Game::exitFunction);
 
 
 	//DEJAR LA LISTA OBJETOS VACIA

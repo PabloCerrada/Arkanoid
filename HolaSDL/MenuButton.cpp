@@ -1,24 +1,21 @@
 #include "MenuButton.h"
 #include "Game.h"
 
-MenuButton::MenuButton(Vector2D pos, int width, int height, Texture* texture) {
+MenuButton::MenuButton(Vector2D pos, int width, int height, Texture* texture, Game* game, void(*functionCallback)(Game* game)) : CallBack(functionCallback) {
 	this->pos = pos;
 	this->width = width;
 	this->height = height;
 	this->texture = texture;
-	mouse = new Mouse();
+	this->game = game;
 	currentPositionState = MOUSE_OUT;
 }
-/*void* MenuButton::function(Game* game) {
-	cout << "hola";
-}*/
 
 void MenuButton::update()
 {
-	if (mouse->getMousePosition().getX() < (pos.getX() + width)
-		&& mouse->getMousePosition().getX() > pos.getX()
-		&& mouse->getMousePosition().getY() < (pos.getY() + height)
-		&& mouse->getMousePosition().getY() > pos.getY()) {
+	if (getMousePosition().getX() < (pos.getX() + width)
+		&& getMousePosition().getX() > pos.getX()
+		&& getMousePosition().getY() < (pos.getY() + height)
+		&& getMousePosition().getY() > pos.getY()) {
 		currentPositionState = MOUSE_OVER;
 	}
 	else {
@@ -31,7 +28,7 @@ void MenuButton::handleEvents(SDL_Event event) {
 		if (event.button.button == SDL_BUTTON_LEFT) {
 			if (currentPositionState == 1) {
 				cout << "Click";
-				currentPositionState = CLICKED;
+				CallBack(game);
 			}
 		}
 	}
@@ -48,4 +45,10 @@ SDL_Rect MenuButton::getRect() {
 	destRect.h = height;
 	destRect.w = width;
 	return destRect;
+}
+
+Vector2D MenuButton::getMousePosition() {
+	SDL_GetMouseState(&xMouse, &yMouse);
+	mousePos = Vector2D(xMouse, yMouse);
+	return mousePos;
 }
