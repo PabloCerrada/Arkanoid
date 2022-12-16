@@ -40,13 +40,12 @@ private:
 	BlocksMap* blocksMap;
 	string* levels[NUM_LEVELS];
 	list<Reward*> rewards;
-	list<ArkanoidObject*> objects;
+	
 public:
 	PlayState(Game* game1, bool load);
 	~PlayState();
-	virtual void run();
 	virtual void render();
-	virtual void handleEvent();
+	virtual void handleEvents();
 	virtual void update();
 	bool collidesBall(SDL_Rect ballRect, Vector2D& colVector);
 	bool collidesReward(SDL_Rect rewardRect);

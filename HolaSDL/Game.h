@@ -64,6 +64,10 @@ public:
 	static void playFunction(Game* game);
 	static void loadFunction(Game* game);
 	static void exitFunction(Game* game);
+	static void pauseFunction(Game* game);
+	static void endFunction(Game* game);
+	static void returnToGame(Game* game);
+	static void returnToMainMenu(Game* game);
 	//void getState()
 	//{
 	//	stateMachine->currentState();					//type id para pillar que tipo de estado es

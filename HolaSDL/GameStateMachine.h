@@ -14,5 +14,7 @@ public:
     void changeState(GameState* state);
     void popState();
     int stackLength();
+   
+    
 };
 

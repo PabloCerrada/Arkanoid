@@ -13,6 +13,6 @@ public:
 	virtual void saveToFile(ofstream& in);
 	virtual void update() {};
 	virtual void render();
-	virtual void handleEvents() {};
+	virtual void handleEvents(SDL_Event event) {};
 };
 

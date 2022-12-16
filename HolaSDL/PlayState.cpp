@@ -16,10 +16,10 @@ PlayState::PlayState(Game* game1, bool load) {
 	
 
 	// We add all the objects to the GameObjects list
-
-	objetos.clear();
-
-
+	if (!objetos.empty())
+	{
+		objetos.clear();
+	}
 	objetos.push_back(blocksMap);
 	objetos.push_back(walls[0]);
 	objetos.push_back(walls[1]);
@@ -48,27 +48,6 @@ PlayState::~PlayState() {
 		deleteReward(*c);
 	}
 }
-
-void PlayState::run() {
-	/*uint32_t startTime, frameTime;
-	startTime = SDL_GetTicks();
-	while (!exit && !gameover && !win) {
-		handleEvent();
-		frameTime = SDL_GetTicks() - startTime;
-		if (frameTime >= FRAME_RATE) {
-			update();
-			startTime = SDL_GetTicks();
-		}
-		render();
-	}
-	if (!exit) {
-		SDL_RenderClear(game->getRenderer());
-		if (gameover) GameOver();
-		else if (win) Win();
-		SDL_RenderPresent(game->getRenderer());
-		SDL_Delay(3000);
-	}*/
-}
 void PlayState::update() {
 	for (auto it : objetos)
 	{
@@ -82,8 +61,9 @@ void PlayState::update() {
 		(*c)->update();
 	}
 	nextLevelBool = false;
-	if (blocksMap->getNBlocks() <= 0 && level == 3) win = true;
+	if (blocksMap->getNBlocks() <= 0 && level == 3) Win();
 	else if (blocksMap->getNBlocks() <= 0 && level != 3) {
+		cout << level;
 		reset();
 		SDL_Delay(400);
 	}
@@ -107,9 +87,13 @@ void PlayState::render() {
 }
 
 //Function that handle the events
-void PlayState::handleEvent() {
+void PlayState::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
+		if ( event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE)
+		{
+			game->pauseFunction(game);
+		}
 		if (event.type == SDL_QUIT) game->setExit();
 		paddle->handleEvents(event);
 		saveToFile(LEVEL_DESCRIPT[3], event);
@@ -151,7 +135,7 @@ bool PlayState::collidesBall(SDL_Rect ballRect, Vector2D& colVector) {
 	// Ball - DeadLine
 	if (ballRect.y >= WIN_HEIGHT) {
 		if (life == 1) {
-			gameover = true; // You will lose only if you have a single life
+						 // You will lose only if you have a single life
 			GameOver();
 		}
 		else { // Reseted position and directions of paddle and ball if you have more than one life
@@ -171,6 +155,7 @@ void PlayState::GameOver() {
 	game->getTexture(GameOver1)->render(game->getWindowRect());
 	SDL_RenderPresent(game->getRenderer());
 	SDL_Delay(3000);
+	game->endFunction(game);
 }
 //... and when you win
 void PlayState::Win() {
@@ -178,6 +163,7 @@ void PlayState::Win() {
 	game->getTexture(Winner1)->render(game->getWindowRect());
 	SDL_RenderPresent(game->getRenderer());
 	SDL_Delay(3000);
+	game->endFunction(game);
 }
 
 void PlayState::oneMoreLife() {
@@ -224,7 +210,6 @@ void PlayState::loadFromFile(const string& path) {
 		Reward* newReward = new Reward(REWARD_WIDTH, REWARD_HEIGHT, game->getTexture(Reward1), this);
 		newReward->loadFromFile(in);
 		rewards.push_back(newReward);
-
 	}
 	in.close();
 }
@@ -256,7 +241,7 @@ void PlayState::reset()
 		ball->setDirection(Vector2D(0, -1));
 
 		blocksMap->deleteBlocks();
-		objects.remove(blocksMap);
+		objetos.remove(blocksMap);
 
 		delete blocksMap;
 		blocksMap = new BlocksMap(WIN_WIDTH - 2 * WALL_WIDTH, (WIN_HEIGHT - 2 * WALL_WIDTH) / 2, game);
@@ -266,7 +251,7 @@ void PlayState::reset()
 		in >> level;
 		blocksMap->loadFromFile(in);
 		in.close();
-		objects.push_front(blocksMap); // Pushed front to avoid error at the lecture
+		objetos.push_front(blocksMap); // Pushed front to avoid error at the lecture
 
 		paddle->setPos(Vector2D(WIN_WIDTH / 2 - (paddleWidth / 2), WIN_HEIGHT - PADDLE_HEIGHT * 2));
 		auto e = rewards.begin();
@@ -279,7 +264,6 @@ void PlayState::reset()
 		nextLevelBool = true;
 	}
 	else {
-		win = true;
 		Win();
 	}
 

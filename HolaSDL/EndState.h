@@ -6,14 +6,14 @@ class EndState : public GameState
 {
 private:
 	Game* game;
-	MenuButton* resumeButton;
-	MenuButton* playButton;
+	MenuButton* menuButton;
 	MenuButton* exitButton;
 public:
 	EndState(Game* game);
+	virtual ~EndState();
 	virtual void update();
 	virtual void render();
-	virtual void handleEvent();
+	virtual void handleEvents();
 	
 };
 

@@ -11,8 +11,9 @@ private:
 	MenuButton* exitButton;
 public:
 	MainMenuState(Game* game);
+	~MainMenuState();
 	virtual void update();
 	virtual void render();
-	virtual void handleEvent();
+	virtual void handleEvents();
 };
 

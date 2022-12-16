@@ -10,9 +10,11 @@ private:
 	MenuButton* resumeButton;
 	MenuButton* exitButton;
 public:
+
 	PauseState(Game* game);
+	virtual ~PauseState();
 	virtual void update();
 	virtual void render();
-	virtual void handleEvent();
+	virtual void handleEvents();
 };
 

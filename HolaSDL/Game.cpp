@@ -22,6 +22,11 @@ Game::Game() {
 }
 Game::~Game() {
 	for (uint i = 0; i < NUM_TEXTURES; i++) delete textures[i];
+	for (int i = 0; i < stateMachine->stackLength(); i++)
+	{
+		delete stateMachine->currentState();
+		stateMachine->popState();
+	}
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -39,9 +44,6 @@ void Game::run() {
 		}
 		render();
 	}
-	if (!exit) {
-		stateMachine->changeState(new EndState(this));
-	}
 }
 void Game::render()
 {
@@ -53,7 +55,7 @@ void Game::update()
 }
 void Game::handleEvent()
 {
-	stateMachine->currentState()->handleEvent();
+	stateMachine->currentState()->handleEvents();
 }
 //We use this function to avoid breaking the privacy between classes ;)
 Texture* Game::getTexture(TextureName name) {
@@ -85,11 +87,25 @@ void Game::setExit() {
 void Game::playFunction(Game* game) {
 	game->stateMachine->changeState(new PlayState(game, false));
 }
-
 void Game::loadFunction(Game* game) {
 	game->stateMachine->changeState(new PlayState(game, true));
 }
-
 void Game::exitFunction(Game* game) {
 	game->setExit();
+}
+void Game::endFunction(Game* game)						
+{
+	game->stateMachine->changeState(new EndState(game));
+}
+void Game::pauseFunction(Game* game)
+{
+	game->stateMachine->pushState(new PauseState(game));
+}
+void Game::returnToGame(Game* game)
+{
+	game->stateMachine->popState();
+}
+void Game::returnToMainMenu(Game* game)
+{
+	game->stateMachine->changeState(new MainMenuState(game));
 }

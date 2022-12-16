@@ -2,9 +2,9 @@
 #include "Game.h"
 MainMenuState::MainMenuState(Game* game) {
 	this->game = game;
-	playButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - REDBUTTON_WIDTH / 2, 200), REDBUTTON_WIDTH, REDBUTTON_HEIGHT, game->getTexture(Play1), game, Game::playFunction);
-	resumeButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - BLUEBUTTON_WIDTH / 2, 350), BLUEBUTTON_WIDTH, BLUEBUTTON_HEIGHT, game->getTexture(Resume1), game, Game::loadFunction);
-	exitButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - REDBUTTON_WIDTH / 2, 500), REDBUTTON_WIDTH, REDBUTTON_HEIGHT, game->getTexture(Exit1), game, Game::exitFunction);
+	playButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - REDBUTTON_WIDTH / 2, 150), REDBUTTON_WIDTH, REDBUTTON_HEIGHT, game->getTexture(Play1), game, Game::playFunction);
+	resumeButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - BLUEBUTTON_WIDTH / 2, 300), BLUEBUTTON_WIDTH, BLUEBUTTON_HEIGHT, game->getTexture(Resume1), game, Game::loadFunction);
+	exitButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - REDBUTTON_WIDTH / 2, 450), REDBUTTON_WIDTH, REDBUTTON_HEIGHT, game->getTexture(Exit1), game, Game::exitFunction);
 
 	//DEJAR LA LISTA OBJETOS VACIA
 	objetos.clear();
@@ -12,6 +12,12 @@ MainMenuState::MainMenuState(Game* game) {
 	objetos.push_back(playButton);
 	objetos.push_back(resumeButton);
 	objetos.push_back(exitButton);
+}
+MainMenuState::~MainMenuState()
+{
+	delete playButton;
+	delete resumeButton;
+	delete exitButton;
 }
 void MainMenuState::render()
 {
@@ -28,12 +34,13 @@ void MainMenuState::update()
 	}
 }
 
-void MainMenuState::handleEvent() {
+void MainMenuState::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
-		if (event.type == SDL_QUIT) game->setExit();
-		playButton->handleEvents(event);
+		if (event.type == SDL_QUIT  || event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE) game->setExit();
+		
 		resumeButton->handleEvents(event);
 		exitButton->handleEvents(event);
+		playButton->handleEvents(event);
 	}
 }
