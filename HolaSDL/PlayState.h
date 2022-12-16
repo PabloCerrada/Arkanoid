@@ -58,7 +58,7 @@ public:
 	void resetPaddle();
 	void reset();
 	void loadFromFile(const string& path);
-	void saveToFile(const string& path, SDL_Event event);
+	void saveToFile(const string& path);
 	void deleteReward(Reward* rewardToDelete);
 };
 

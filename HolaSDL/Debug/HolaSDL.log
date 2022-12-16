@@ -1,6 +1,2 @@
-﻿  Game.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-  PlayState.cpp
-  Generando código...
+﻿  PauseState.cpp
   HolaSDL.vcxproj -> C:\Users\lauri\Documents\GitHub\MeCagoEnMisMuertos\bin\HolaSDLDebug.exe

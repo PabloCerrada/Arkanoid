@@ -109,3 +109,7 @@ void Game::returnToMainMenu(Game* game)
 {
 	game->stateMachine->changeState(new MainMenuState(game));
 }
+
+void Game::saveFunction(Game* game) {
+	
+}

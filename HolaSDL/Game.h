@@ -68,6 +68,7 @@ public:
 	static void endFunction(Game* game);
 	static void returnToGame(Game* game);
 	static void returnToMainMenu(Game* game);
+	static void saveFunction(Game* game);
 	//void getState()
 	//{
 	//	stateMachine->currentState();					//type id para pillar que tipo de estado es

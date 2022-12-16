@@ -1,14 +1,15 @@
 #pragma once
 #include "GameState.h"
-#include "MenuButton.h"
+#include "Button.h"
 
 class Game;
 class PauseState :public GameState
 {
 private:
 	Game* game;
-	MenuButton* resumeButton;
-	MenuButton* exitButton;
+	Button* resumeButton;
+	Button* exitButton;
+	Button* saveButton;
 public:
 
 	PauseState(Game* game);

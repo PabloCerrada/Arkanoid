@@ -96,7 +96,9 @@ void PlayState::handleEvents() {
 		}
 		if (event.type == SDL_QUIT) game->setExit();
 		paddle->handleEvents(event);
-		saveToFile(LEVEL_DESCRIPT[3], event);
+		if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_s) { // Press S to save
+			saveToFile(LEVEL_DESCRIPT[3]);
+		}
 	}
 }
 bool PlayState::collidesReward(SDL_Rect rewardRect) {
@@ -214,24 +216,23 @@ void PlayState::loadFromFile(const string& path) {
 	in.close();
 }
 
-void PlayState::saveToFile(const string& path, SDL_Event event) {
-	if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_s) { // Press S to save
-		ofstream in;
-		in.open(path);
-		if (!in) throw FileNotFoundError("Path unknown");
-		in << level << "\n";
-		cout << level;
-		for (auto it : objetos) {
-			it->saveToFile(in);
-			in << "\n";
-		}
-		in << rewards.size() << "\n";
-		for (auto it : rewards) {
-			it->saveToFile(in);
-		}
-		in.close();
+void PlayState::saveToFile(const string& path) {
+	ofstream in;
+	in.open(path);
+	if (!in) throw FileNotFoundError("Path unknown");
+	in << level << "\n";
+	cout << level;
+	for (auto it : objetos) {
+		it->saveToFile(in);
+		in << "\n";
 	}
+	in << rewards.size() << "\n";
+	for (auto it : rewards) {
+		it->saveToFile(in);
+	}
+	in.close();
 }
+
 //This function is called everytime we pass to the next level.
 //It deletes blocksmap and rewards and change atributes (everything excepts walls) of the other objects.
 void PlayState::reset()

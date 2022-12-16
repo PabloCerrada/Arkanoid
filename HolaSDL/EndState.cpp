@@ -3,8 +3,8 @@
 
 EndState::EndState(Game* game) {
 	this->game = game;
-	exitButton = new MenuButton(Vector2D(WIN_WIDTH / 2 - REDBUTTON_WIDTH / 2, 400), REDBUTTON_WIDTH, REDBUTTON_HEIGHT, game->getTexture(Exit1), game, Game::exitFunction);
-	menuButton=new MenuButton(Vector2D(WIN_WIDTH / 2 - BLUEBUTTON_WIDTH / 2, 200), BLUEBUTTON_WIDTH, BLUEBUTTON_HEIGHT, game->getTexture(Main1), game, Game::returnToMainMenu);
+	exitButton = new Button(Vector2D(WIN_WIDTH / 2 - REDBUTTON_WIDTH / 2, 400), REDBUTTON_WIDTH, REDBUTTON_HEIGHT, game->getTexture(Exit1), game, Game::exitFunction);
+	menuButton = new Button(Vector2D(WIN_WIDTH / 2 - BLUEBUTTON_WIDTH / 2, 200), BLUEBUTTON_WIDTH, BLUEBUTTON_HEIGHT, game->getTexture(Main1), game, Game::returnToMainMenu);
 
 	//DEJAR LA LISTA OBJETOS VACIA
 	objetos.clear();
