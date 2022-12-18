@@ -8,6 +8,7 @@ private:
 	Game* game;
 	Button* menuButton;
 	Button* exitButton;
+	Texture* texture;
 public:
 	EndState(Game* game);
 	virtual ~EndState();

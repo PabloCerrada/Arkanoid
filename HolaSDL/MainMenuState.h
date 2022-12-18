@@ -9,6 +9,7 @@ private:
 	Button* resumeButton;
 	Button* playButton;
 	Button* exitButton;
+	Texture* texture;
 public:
 	MainMenuState(Game* game);
 	~MainMenuState();

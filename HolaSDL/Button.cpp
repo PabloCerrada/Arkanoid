@@ -21,13 +21,37 @@ void Button::update()
 	else {
 		currentPositionState = MOUSE_OUT;
 	}
+
+	if (currentPositionState==1)
+	{
+		if (cont==20)
+		{
+			cont = 0;
+			if (nCols == 2)
+			{
+				nCols = 0;
+			}
+			else
+			{
+				nCols++;
+			}
+		}
+		else
+		{
+			cont++;
+		}
+		
+	}
+	else
+	{
+		nCols = 0;
+	}
 }
 
 void Button::handleEvents(SDL_Event event) {
 	if (event.type == SDL_MOUSEBUTTONDOWN) {
 		if (event.button.button == SDL_BUTTON_LEFT) {
 			if (currentPositionState == 1) {
-				cout << "Click";
 				CallBack(game);
 			}
 		}
@@ -35,7 +59,7 @@ void Button::handleEvents(SDL_Event event) {
 }
 
 void Button::render() {
-	texture->renderFrame(getRect(), 0, 0);
+	texture->renderFrame(getRect(), 0, nCols);
 }
 
 SDL_Rect Button::getRect() {

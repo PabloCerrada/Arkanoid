@@ -8,6 +8,8 @@ private:
 	enum mouseState {MOUSE_OUT, MOUSE_OVER};
 	Vector2D pos, mousePos;
 	int xMouse, yMouse, width, height, currentPositionState;
+	int nCols=0;
+	int cont = 0;
 	Game* game;
 	Texture* texture;
 public:

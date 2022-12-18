@@ -6,6 +6,11 @@ MainMenuState::MainMenuState(Game* game) {
 	resumeButton = new Button(Vector2D(WIN_WIDTH / 2 - BLUEBUTTON_WIDTH / 2, 300), BLUEBUTTON_WIDTH, BLUEBUTTON_HEIGHT, game->getTexture(Resume1), game, Game::loadFunction);
 	exitButton = new Button(Vector2D(WIN_WIDTH / 2 - REDBUTTON_WIDTH / 2, 450), REDBUTTON_WIDTH, REDBUTTON_HEIGHT, game->getTexture(Exit1), game, Game::exitFunction);
 
+	texture = game->getTexture(MainMenu1);
+
+
+
+
 	//DEJAR LA LISTA OBJETOS VACIA
 	objetos.clear();
 
@@ -22,6 +27,7 @@ MainMenuState::~MainMenuState()
 void MainMenuState::render()
 {
 	SDL_RenderClear(game->getRenderer());
+	texture->render(game->getWindowRect());
 	for (auto it : objetos) {
 		it->render();
 	}

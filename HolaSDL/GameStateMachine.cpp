@@ -1,7 +1,5 @@
 #include "GameStateMachine.h"
-GameStateMachine::GameStateMachine() {
 
-}
 
 GameState* GameStateMachine::currentState() 
 {

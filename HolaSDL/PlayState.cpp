@@ -63,7 +63,6 @@ void PlayState::update() {
 	nextLevelBool = false;
 	if (blocksMap->getNBlocks() <= 0 && level == 3) Win();
 	else if (blocksMap->getNBlocks() <= 0 && level != 3) {
-		cout << level;
 		reset();
 		SDL_Delay(400);
 	}
@@ -137,7 +136,7 @@ bool PlayState::collidesBall(SDL_Rect ballRect, Vector2D& colVector) {
 	// Ball - DeadLine
 	if (ballRect.y >= WIN_HEIGHT) {
 		if (life == 1) {
-						 // You will lose only if you have a single life
+			// You will lose only if you have a single life
 			GameOver();
 		}
 		else { // Reseted position and directions of paddle and ball if you have more than one life
@@ -156,7 +155,6 @@ void PlayState::GameOver() {
 	SDL_RenderClear(game->getRenderer());
 	game->getTexture(GameOver1)->render(game->getWindowRect());
 	SDL_RenderPresent(game->getRenderer());
-	SDL_Delay(3000);
 	game->endFunction(game);
 }
 //... and when you win
@@ -164,7 +162,6 @@ void PlayState::Win() {
 	SDL_RenderClear(game->getRenderer());
 	game->getTexture(Winner1)->render(game->getWindowRect());
 	SDL_RenderPresent(game->getRenderer());
-	SDL_Delay(3000);
 	game->endFunction(game);
 }
 

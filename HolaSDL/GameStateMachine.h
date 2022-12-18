@@ -8,7 +8,7 @@ class GameStateMachine
 private:
     stack<GameState*> stackStates;              //posible error
 public:
-    GameStateMachine();
+    GameStateMachine() {};
     GameState* currentState();
     void pushState(GameState* state);
     void changeState(GameState* state);

@@ -10,6 +10,7 @@ private:
 	Button* resumeButton;
 	Button* exitButton;
 	Button* saveButton;
+	Texture* texture;
 public:
 
 	PauseState(Game* game);
